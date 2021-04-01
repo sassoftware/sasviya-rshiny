@@ -9,7 +9,13 @@ library(reshape2)
 library(shiny)
 library(plotly)
 options(cas.print.messages = FALSE)
-options(shiny.maxRequestSize=30*1024^2)
+
+# What is the largest file size (in MB) that a user should be able to upload to
+# the app?
+max_mb <- 30   # we're setting it to 30MB
+
+# Restrict file uploads to 30MB max
+options(shiny.maxRequestSize = (max_mb * 1024^2))
 
 
 #####################################
