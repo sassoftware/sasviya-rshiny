@@ -26,6 +26,7 @@ You will need to have the following packages installed to run the R script that 
 {ggplot2} <https://cran.r-project.org/web/packages/ggplot2/index.html> <br/> 
 {plotly} <https://cran.r-project.org/web/packages/plotly/index.html> <br/> 
 {reshape2} <https://cran.r-project.org/web/packages/reshape2/index.html>
+{fs} <https://cran.r-project.org/web/packages/fs/index.html>
 
 If you don't have them installed already, you can do so by running the following commands in your RStudio console:
 

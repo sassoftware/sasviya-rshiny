@@ -11,6 +11,7 @@ library(ggplot2)
 library(reshape2)
 library(shiny)
 library(plotly)
+library(fs)
 options(cas.print.messages = FALSE)
 
 # What is the largest file size (in MB) that a user should be able to upload to

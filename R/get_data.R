@@ -1,12 +1,86 @@
 # Custom Functions for App
 
 
-# Open connection to CAS and import main functions
-connect <- function(username, password, lib) {
+# Open connection to CAS and import main functions;
+# Using an 'authinfo' file to hold your secure database credentials is highly 
+# recommended, instead of hardcoding the credentials into your R scripts. 
+# You can read more on 'authinfo' files at the links below:
+# https://documentation.sas.com/?cdcId=pgmsascdc&cdcVersion=9.4_3.5&docsetId=authinfo&docsetTarget=n0xo6z7e98y63dn1fj0g9l2j7oyq.htm&locale=en 
+# https://github.com/sassoftware/R-swat#authinfo-file
+connect <- function(hostname, port, protocol = "http", authinfo_path = NULL, username = NULL, password = NULL) {
   
-  conn <<- CAS('hostname', port=8777, caslib = 'casuser',   username = username,   password = password, protocol = "http")
+  # Assume that an .authinfo file doesn't exist, to start
+  authinfo_exists <- FALSE
+  
+  # If the user is on a Windows machine, look for the '_authinfo' file in its
+  # default location
+  if (grepl("Windows", Sys.getenv("OS"))) {
+    
+    authinfo_path_def <- paste0(
+      Sys.getenv("HOMEDRIVE"), 
+      Sys.getenv("HOMEPATH"), 
+      "_authinfo"
+    )
+    
+    authinfo_exists <- fs::file_exists(authinfo_path_def)
+    
+    if (authinfo_exists) {
+      
+      authinfo_path <- fs::fs_path(authinfo_path_def)
+      
+    }
+    
+  } else {
+    
+    # Otherwise, look for the '.authinfo' file in the UNIX $HOME directory 
+    authinfo_path_def <- paste0(
+      Sys.getenv("HOME"), 
+      "/.authinfo"
+    )
+    
+    authinfo_exists <- fs::file_exists(authinfo_path_def)
+    
+    if (authinfo_exists) {
+      
+      authinfo_path <- fs::fs_path(authinfo_path_def)
+      
+    }
+    
+  }
+  
+  
+  
+  # If the 'authinfo_path' is not null, use it to connect
+  if (!is.null(authinfo_path)) {
+    
+    conn <<- swat::CAS(
+      hostname = hostname, 
+      port = port, 
+      protocol = protocol, 
+      authinfo = authinfo_path
+    )
+    
+  } else {
+    
+    # Otherwise, use the username and password to connect
+    if (all(is.null(authinfo_path, username, password))) {
+      
+      stop("Must supply either a valid \'authinfo\' path or a valid \'username\' and \'password\'")
+      
+    }
+    
+    conn <<- CAS(
+      hostname = hostname, 
+      port = port, 
+      username = username, 
+      password = password, 
+      protocol = protocol
+    )
+    
+  }
   
   return(cas.builtins.serverStatus(conn))
+  
 }
 
 
