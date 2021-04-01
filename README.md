@@ -30,7 +30,7 @@ You will need to have the following packages installed to run the R script that 
 
 If you don't have them installed already, you can do so by running the following commands in your RStudio console:
 
-`install.packages(c("shiny", "dplyr", "dplyr", "ggplot2", "plotly", "reshape2"))`  
+`install.packages(c("shiny", "dplyr", "dplyr", "ggplot2", "plotly", "reshape2", "fs"))`  
 
 Then, to install the {swat} package, check for the latest release on [Github](https://github.com/sassoftware/R-swat/releases/latest), and substitute that version for the *"X.X.X"* in the following command:
 
@@ -40,7 +40,7 @@ Then, to install the {swat} package, check for the latest release on [Github](ht
 
 Clone this repo to your machine.
 
-Edit the hostname / port / username / password on line 23 to match your CAS engine.
+Edit the hostname / port / username / password in the [app.R](app.R) script's server code.
 
 ### Running
 

@@ -208,7 +208,13 @@ if (interactive()) {
     output$connection <- renderTable ({
       validate(need(input$username, ''))
       validate(need(input$pwd, ''))
-      connect(input$username, input$pwd, 'CASUSER')
+      connect(
+        hostname = "hostname", 
+        port = 8777, 
+        username = input$username, 
+        password = input$pwd, 
+        protocol = "http"
+      )
     })
     
     output$tbl_import <- renderTable({

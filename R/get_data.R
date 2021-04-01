@@ -1,16 +1,18 @@
-# Custom Functions for App
+# Custom Database Functions for App
 
 
 # Open connection to CAS and import main functions;
 # Using an 'authinfo' file to hold your secure database credentials is highly 
 # recommended, instead of hardcoding the credentials into your R scripts. 
 # You can read more on 'authinfo' files at the links below:
+
 # https://documentation.sas.com/?cdcId=pgmsascdc&cdcVersion=9.4_3.5&docsetId=authinfo&docsetTarget=n0xo6z7e98y63dn1fj0g9l2j7oyq.htm&locale=en 
 # https://github.com/sassoftware/R-swat#authinfo-file
+
+# Though the functionality to bypass the username/password screen in the app is 
+# not part of the code in the app.R file, we included logic in this function to 
+# show how to conditionally capture either the authinfo or username/password
 connect <- function(hostname, port, protocol = "http", authinfo_path = NULL, username = NULL, password = NULL) {
-  
-  # Assume that an .authinfo file doesn't exist, to start
-  authinfo_exists <- FALSE
   
   # If the user is on a Windows machine, look for the '_authinfo' file in its
   # default location
@@ -63,7 +65,7 @@ connect <- function(hostname, port, protocol = "http", authinfo_path = NULL, use
   } else {
     
     # Otherwise, use the username and password to connect
-    if (all(is.null(authinfo_path, username, password))) {
+    if (all(is.null(c(authinfo_path, username, password)))) {
       
       stop("Must supply either a valid \'authinfo\' path or a valid \'username\' and \'password\'")
       
