@@ -25,10 +25,11 @@ You will need to have the following packages installed to run the R script that 
 {dplyr} <https://cran.r-project.org/web/packages/dplyr/index.html> <br/> 
 {ggplot2} <https://cran.r-project.org/web/packages/ggplot2/index.html> <br/> 
 {plotly} <https://cran.r-project.org/web/packages/plotly/index.html> <br/> 
+{reshape2} <https://cran.r-project.org/web/packages/reshape2/index.html>
 
 If you don't have them installed already, you can do so by running the following commands in your RStudio console:
 
-`install.packages(c("shiny", "dplyr", "dplyr", "ggplot2", "plotly"))`  
+`install.packages(c("shiny", "dplyr", "dplyr", "ggplot2", "plotly", "reshape2"))`  
 
 Then, to install the {swat} package, check for the latest release on [Github](https://github.com/sassoftware/R-swat/releases), and substitute that version for the *"X.X.X"* in the following command:
 
