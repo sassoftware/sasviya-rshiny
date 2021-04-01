@@ -31,7 +31,7 @@ If you don't have them installed already, you can do so by running the following
 
 `install.packages(c("shiny", "dplyr", "dplyr", "ggplot2", "plotly", "reshape2"))`  
 
-Then, to install the {swat} package, check for the latest release on [Github](https://github.com/sassoftware/R-swat/releases), and substitute that version for the *"X.X.X"* in the following command:
+Then, to install the {swat} package, check for the latest release on [Github](https://github.com/sassoftware/R-swat/releases/latest), and substitute that version for the *"X.X.X"* in the following command:
 
 `install.packages('https://github.com/sassoftware/R-swat/archive/vX.X.X.tar.gz', repos = NULL, type = 'file')`
 
