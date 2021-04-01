@@ -2,8 +2,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
 
-
-setwd("C://Desktop/shiny_app")
 library(dplyr)
 library(swat)
 library(ggplot2)
