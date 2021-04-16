@@ -1,4 +1,4 @@
-# **R Shiny app with SAS Viya**
+# R Shiny app with SAS Viya
 
 The repository supports the SAS Support Community Library article [Creating an R Shiny app with SAS Viya](https://communities.sas.com/t5/SAS-Communities-Library/Creating-an-R-Shiny-app-with-SAS-Viya/ta-p/649029). Please refer to the article for the details of how to set up and run the application in your environment.
 
@@ -8,11 +8,11 @@ There is not one solution or programming language that will deliver everything y
 
 This app, written in R Shiny, is a low-code solution that displays SAS integration through APIs with open source languages.
 
-The interface developed in this repository will allow you to:<br/>
+The interface developed in this repository will allow you to:
 
-1.  import data to CAS <br/>
-2.  build features <br/>
-3.  train models.<br/>
+1. import data to CAS
+2. build features
+3. train models
 
 At the end, the user will have an end-to-end pipeline to test different approaches.
 
@@ -20,15 +20,15 @@ At the end, the user will have an end-to-end pipeline to test different approach
 
 You will need to have the following packages installed to run the R script that launches the app:  
 
-{shiny} <https://cran.r-project.org/web/packages/shiny/index.html> <br/> 
-{swat} *(Note: this package is not on CRAN)* <https://github.com/sassoftware/R-swat#installation> <br/> 
-{dplyr} <https://cran.r-project.org/web/packages/dplyr/index.html> <br/> 
-{ggplot2} <https://cran.r-project.org/web/packages/ggplot2/index.html> <br/> 
-{plotly} <https://cran.r-project.org/web/packages/plotly/index.html> <br/> 
-{reshape2} <https://cran.r-project.org/web/packages/reshape2/index.html>
-{fs} <https://cran.r-project.org/web/packages/fs/index.html>
+* [{shiny}](https://cran.r-project.org/web/packages/shiny/index.html)
+* [{dplyr}](https://cran.r-project.org/web/packages/dplyr/index.html)
+* [{ggplot2}](https://cran.r-project.org/web/packages/ggplot2/index.html)
+* [{plotly}](https://cran.r-project.org/web/packages/plotly/index.html)
+* [{reshape2}](https://cran.r-project.org/web/packages/reshape2/index.html)
+* [{fs}](https://cran.r-project.org/web/packages/fs/index.html)
+* [{swat}](https://github.com/sassoftware/R-swat#installation) *(Note: this package is not on CRAN)*
 
-If you don't have them installed already, you can do so by running the following commands in your RStudio console:
+If you don't have the first six packges installed already, you can do so by running the following commands in your RStudio console:
 
 `install.packages(c("shiny", "dplyr", "dplyr", "ggplot2", "plotly", "reshape2", "fs"))`  
 
@@ -40,13 +40,9 @@ Then, to install the {swat} package, check for the latest release on [Github](ht
 
 Clone this repo to your machine.
 
-Edit the hostname / port / username / password in the [app.R](app.R) script's server code.
-
 ### Running
 
-In RStudio, run the code.
-
-Shiny will expose the app either in the RStudio interface or in your browser.
+Edit the *hostname / port / username / password* in the [app.R](app.R) script's server code. Then run the app script by either clicking "Run App" in RStudio while in the **app.R** script, or running `shiny::run_app("app.R")` from the console.
 
 ## Contributing
 
